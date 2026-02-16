@@ -1,0 +1,34 @@
+{
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "git clone https://github.com/kkkls/EVSSM.git app"
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "conda": "env",
+        "path": "app",
+        "message": "conda env create -f environment.yml -p ../env"
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "conda": "env",
+        "path": "app",
+        "message": "pip install torch torchvision torchaudio" 
+      },
+      "description": "On M2 Mac, Pinokio will automatically pull the Metal (MPS) compatible versions if available."
+    },
+    {
+      "method": "fs.download",
+      "params": {
+        "url": "https://path-to-evssm-checkpoint.pth",
+        "to": "app/checkpoints/evssm_gopro.pth"
+      }
+    }
+  ]
+}

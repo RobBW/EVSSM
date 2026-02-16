@@ -1,0 +1,18 @@
+{
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "conda": "env",
+        "path": "app",
+        "message": "python test.py --model_path checkpoints/evssm_gopro.pth --input_dir inputs/ --output_dir outputs/"
+      }
+    },
+    {
+      "method": "local.browser",
+      "params": {
+        "url": "{{path.resolve('app/outputs')}}"
+      }
+    }
+  ]
+}
